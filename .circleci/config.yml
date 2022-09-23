@@ -70,6 +70,8 @@ jobs:
             npm run deploy
   sendEnviroments:
     steps:
+      - node/install:
+          node-version: '14.15'
       - checkout
       - eb/setup
       run:
