@@ -72,8 +72,8 @@ jobs:
     steps:
       - node/install:
           node-version: '14.15'
-      - checkout
       - eb/setup
+      - checkout
       run:
         command: |
             eb setenv PORT=3000
