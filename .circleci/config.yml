@@ -70,12 +70,13 @@ jobs:
             eb use udagram-dev-api
             eb setenv PORT=3000
             npm run deploy
+            
 workflows:
   udagram:
     jobs:
       - build
       - deploy
-       - hold:
+      - hold:
           filters:
             branches:
               only:
