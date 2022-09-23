@@ -63,6 +63,7 @@ jobs:
       - checkout
       - run:
           name: Deploy App
+          context: aws
           # TODO: Install, build, deploy in both apps
           command: |
             echo "# TODO: Install, build, deploy in both apps"
@@ -80,7 +81,4 @@ workflows:
           type: approval
           requires:
             - build
-      - deploy:
-          context: aws
-          requires:
-            - hold
+
