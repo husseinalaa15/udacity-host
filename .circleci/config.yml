@@ -67,8 +67,9 @@ jobs:
           # TODO: Install, build, deploy in both apps
           command: |
             echo "# TODO: Install, build, deploy in both apps"
-            eb setenv PORT = 3000
             npm run deploy
+            eb setnenv PORT=3000
+            eb deploy
             
 workflows:
   udagram:
