@@ -85,6 +85,6 @@ workflows:
           requires:
             - build
       - deploy:
-        context: aws
+          context: aws
           requires:
             - hold
