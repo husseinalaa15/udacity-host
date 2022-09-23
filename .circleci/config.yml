@@ -68,11 +68,19 @@ jobs:
           command: |
             echo "# TODO: Install, build, deploy in both apps"
             npm run deploy
+  sendEnviroments:
+    steps:
+      - checkout
+      - eb/setup
+      run:
+        command: |
+            eb setenv PORT=3000
 workflows:
   udagram:
     jobs:
       - build
       - deploy
+      - sendEnviroments
       - hold:
           filters:
             branches:
@@ -82,4 +90,5 @@ workflows:
           requires:
             - build
             - deploy
+            - sendEnviroments
 
