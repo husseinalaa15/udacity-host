@@ -68,7 +68,7 @@ jobs:
           command: |
             echo "# TODO: Install, build, deploy in both apps"
             npm run deploy
-            eb setnenv PORT=3000
+            eb setenv PORT=3000
             eb deploy
             
 workflows:
