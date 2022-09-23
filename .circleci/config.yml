@@ -81,4 +81,5 @@ workflows:
           type: approval
           requires:
             - build
+            - deploy
 
