@@ -76,7 +76,7 @@ jobs:
           node-version: '14.15'
       - checkout
       - eb/setup
-      run:
+      - run:
         command: |
             eb setenv PORT=3000
 workflows:
