@@ -64,12 +64,9 @@ jobs:
       - run:
           name: Deploy App
           # TODO: Install, build, deploy in both apps
-          command: |
+          command: 
             echo "# TODO: Install, build, deploy in both apps"
-            npm run frontend:install
-            npm run api:install
-            npm run frontend:build
-            npm run api:build
+
             npm run deploy
             
 workflows:
