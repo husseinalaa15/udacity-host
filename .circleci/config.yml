@@ -67,25 +67,15 @@ jobs:
           # TODO: Install, build, deploy in both apps
           command: |
             echo "# TODO: Install, build, deploy in both apps"
-            npm run deploy
-  sendEnviroments:
-    docker:
-      - image: "cimg/base:stable"
-    steps:
-      - node/install:
-          node-version: '14.15'
-      - checkout
-      - eb/setup
-      - run:
-        command: |
+            eb use udagram-dev-api
             eb setenv PORT=3000
+            npm run deploy
 workflows:
   udagram:
     jobs:
       - build
       - deploy
-      - sendEnviroments
-      - hold:
+       - hold:
           filters:
             branches:
               only:
@@ -94,5 +84,4 @@ workflows:
           requires:
             - build
             - deploy
-            - sendEnviroments
 
