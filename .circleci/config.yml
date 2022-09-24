@@ -15,6 +15,7 @@ jobs:
       - eb/setup
       - checkout
     - run:
+      eb init udagram-api --platform node.js --region us-east-1
       eb setenv PORT=$PORT
   build:
     docker:
