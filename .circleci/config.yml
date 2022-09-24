@@ -6,6 +6,16 @@ orbs:
   aws-cli: circleci/aws-cli@3.1.1
   # different jobs are calles later in the workflows sections
 jobs:
+  enviroment:
+    docker:
+      -image: "cimg/node:14.15"
+    steps:
+       - node/install:
+          node-version: '14.15'         
+      - eb/setup
+      - checkout
+    - run:
+      eb setenv PORT=$PORT
   build:
     docker:
       # the base image can run most needed actions with orbs
@@ -66,12 +76,12 @@ jobs:
           context: aws
           # TODO: Install, build, deploy in both apps
           command: |
-            eb setenv PORT=$PORT
             npm run deploy
     
 workflows:
   udagram:
     jobs:
+      - enviroment
       - build
       - deploy
       - hold:
@@ -81,6 +91,7 @@ workflows:
                 - master
           type: approval
           requires:
+            - enviroment
             - build
             - deploy
 
