@@ -68,7 +68,7 @@ jobs:
           command: |
             eb init udagram-api --platform node.js --region us-east-1
             eb use udagram-api-dev
-            echo "eb USED API "
+            eb setenv PORT=$PORT
             npm run deploy
     
 workflows:
