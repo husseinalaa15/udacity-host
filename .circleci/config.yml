@@ -73,7 +73,6 @@ jobs:
 workflows:
   udagram:
     jobs:
-      - enviroment
       - build
       - deploy
       - hold:
@@ -83,7 +82,6 @@ workflows:
                 - master
           type: approval
           requires:
-            - enviroment
             - build
             - deploy
 
