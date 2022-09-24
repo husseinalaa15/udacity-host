@@ -66,7 +66,8 @@ jobs:
           context: aws
           # TODO: Install, build, deploy in both apps
           command: |
-            aws elasticbeanstalk update-environment --PORT 3000
+            eb use udagram-api-dev
+            echo "eb USED API "
             npm run deploy
     
 workflows:
